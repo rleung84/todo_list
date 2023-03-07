@@ -1,4 +1,32 @@
+import { render_inbox } from "./inbox";
 import { render_today } from "./today";
+import { render_upcoming } from "./upcoming";
+import { render_filters } from "./filters";
+
+function navigateTo(e) {
+  var right = document.querySelector(".right");
+
+  right.innerHTML = "";
+
+  switch (e.currentTarget.classList[1]) {
+    case "today":
+      right.append(render_today());
+      break;
+    case "inbox":
+      right.append(render_inbox());
+      break;
+    case "calendar_month":
+      right.append(render_upcoming());
+      break;
+    case "filter_list":
+      right.append(render_filters());
+      break;
+    default:
+      right.append(render_today());
+      break;
+  }
+}
+
 function icon(symbol) {
   const icon = document.createElement("div");
   icon.classList.add("material-symbols-outlined");
@@ -13,6 +41,7 @@ function icon_label(symbol, label) {
   const text = document.createElement("div");
   text.innerHTML = label;
   icon_label.append(icon(symbol), text);
+  icon_label.addEventListener("click", navigateTo);
   return icon_label;
 }
 
