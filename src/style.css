@@ -151,6 +151,16 @@ h2 {
 .header-left {
   display: flex;
   gap: 15px;
+  border-radius: 5px;
+}
+.header-left .material-symbols-outlined,
+.header-right .material-symbols-outlined {
+  border-radius: 5px;
+}
+.header-left .material-symbols-outlined:hover,
+.header-right .material-symbols-outlined:hover {
+  background-color: rgb(250, 135, 135);
+  cursor: pointer;
 }
 .search {
   display: flex;
@@ -182,6 +192,9 @@ h2 {
   padding: 25px 15px;
   display: flex;
   flex-direction: column;
+}
+.left-toggle {
+  display: none;
 }
 .left-upper {
   display: flex;

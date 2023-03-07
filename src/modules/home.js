@@ -26,6 +26,10 @@ function navigateTo(e) {
       break;
   }
 }
+function toggleMenu(e) {
+  const left = document.querySelector(".left");
+  left.classList.toggle("left-toggle");
+}
 
 function icon(symbol) {
   const icon = document.createElement("div");
@@ -58,7 +62,11 @@ function search() {
 function header_left() {
   const header_left = document.createElement("div");
   header_left.classList.add("header-left");
-  header_left.append(icon("menu"), icon("home"), search());
+  const menu = icon("menu");
+  menu.addEventListener("click", toggleMenu);
+  const home = icon("home");
+  home.addEventListener("click", navigateTo);
+  header_left.append(menu, home, search());
   return header_left;
 }
 function header_right() {
